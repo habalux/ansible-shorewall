@@ -28,7 +28,7 @@
 
 - name: Configure shorewall4 main options
   template:
-    src: "shorewall4/shorewall.conf.{{ shorewall4_major_version }}.j2"
+    src: "shorewall4/{{ shorewall4_major_version }}/shorewall.conf.j2"
     dest: "/etc/shorewall/shorewall.conf"
     owner: "root"
     group: "root"
@@ -38,7 +38,7 @@
 
 - name: Configure shorewall4 zones
   template:
-    src: "shorewall4/zones.{{ shorewall4_major_version }}.j2"
+    src: "shorewall4/{{ shorewall4_major_version }}/zones.j2"
     dest: "/etc/shorewall/zones"
     owner: "root"
     group: "root"
@@ -47,7 +47,7 @@
 
 - name: Configure shorewall4 interfaces
   template:
-    src: "shorewall4/interfaces.{{ shorewall4_major_version }}.j2"
+    src: "shorewall4/{{ shorewall4_major_version }}/interfaces.j2"
     dest: "/etc/shorewall/interfaces"
     owner: "root"
     group: "root"
@@ -56,7 +56,7 @@
 
 - name: Configure shorewall4 policy
   template:
-    src: "shorewall4/policy.{{ shorewall4_major_version }}.j2"
+    src: "shorewall4/{{ shorewall4_major_version }}/policy.j2"
     dest: "/etc/shorewall/policy"
     owner: "root"
     group: "root"
@@ -65,7 +65,7 @@
 
 - name: Configure shorewall4 rules
   template:
-    src: "shorewall4/rules.{{ shorewall4_major_version }}.j2"
+    src: "shorewall4/{{ shorewall4_major_version }}/rules.j2"
     dest: "/etc/shorewall/rules"
     owner: "root"
     group: "root"

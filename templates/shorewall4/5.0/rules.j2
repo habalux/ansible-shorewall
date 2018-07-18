@@ -6,32 +6,32 @@
 #                                                       PORT    PORT(S)         DEST            LIMIT           GROUP
 ?SECTION ALL
 {% for __rule in shorewall_rules if __rule.ipv4 and __rule.section|default(None) == 'ALL' %}
-{% include "rule_line." + shorewall4_major_version + ".j2" %}
+{% include "rule_line.j2" %}
 {% endfor %}
 
 ?SECTION ESTABLISHED
 {% for __rule in shorewall_rules if __rule.ipv4 and __rule.section|default(None) == 'ESTABLISHED' %}
-{% include "rule_line." + shorewall4_major_version + ".j2" %}
+{% include "rule_line.j2" %}
 {% endfor %}
 
 ?SECTION RELATED
 {% for __rule in shorewall_rules if __rule.ipv4 and __rule.section|default(None) == 'RELATED' %}
-{% include "rule_line." + shorewall4_major_version + ".j2" %}
+{% include "rule_line.j2" %}
 {% endfor %}
 
 ?SECTION INVALID
 {% for __rule in shorewall_rules if __rule.ipv4 and __rule.section|default(None) == 'INVALID' %}
-{% include "rule_line." + shorewall4_major_version + ".j2" %}
+{% include "rule_line.j2" %}
 {% endfor %}
 
 ?SECTION UNTRACKED
 {% for __rule in shorewall_rules if __rule.ipv4 and __rule.section|default(None) == 'UNTRACKED' %}
-{% include "rule_line." + shorewall4_major_version + ".j2" %}
+{% include "rule_line.j2" %}
 {% endfor %}
 
 ?SECTION NEW
 {% for __rule in shorewall_rules if __rule.ipv4 and __rule.section|default('NEW') == 'NEW' %}
-{% include "rule_line." + shorewall4_major_version + ".j2" %}
+{% include "rule_line.j2" %}
 {% endfor %}
 
 #
