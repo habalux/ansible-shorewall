@@ -1,0 +1,37 @@
+---
+- name: Install shorewall6
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ shorewall6_packages }}"
+
+- name: Check shorewall version
+  shell: "shorewall version"
+  register: __shorewall6_version
+  check_mode: no
+  changed_when: False
+  failed_when: False
+
+- name: Check shorewall6 version presence
+  fail:
+    msg: "Shorewall6 version could not be detected! (Possible error message: '{{ __shorewall6_version.stderr }}'"
+  when: not __shorewall6_version.stdout_lines
+
+- name: Set shorewall6 version facts
+  set_fact:
+    shorewall6_major_version: "{{ __shorewall6_version.stdout.split('.')[:2]|join('.') }}"
+
+- name: Check shorewall6 version
+  fail:
+    msg: "Shorewall version {{ shorewall6_major_version }} is not supported by this role, sorry! ({{ shorewall6_minimum_version }} or newer required)"
+  when: shorewall6_major_version is version(shorewall6_minimum_version, '<')
+
+- name: Configure shorewall6
+  template:
+    src: "shorewall6/shorewall6.conf.{{ shorewall6_major_version }}.j2"
+    dest: "/etc/shorewall6/shorewall6.conf"
+    owner: "root"
+    group: "root"
+    mode: 0644
+    # backup: yes
+  notify: Restart shorewall6

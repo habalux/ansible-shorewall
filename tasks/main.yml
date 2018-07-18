@@ -1,0 +1,34 @@
+---
+- name: Load OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- block:
+  - name: Backup shorewall4/6 configuration in case it needs to be reverted
+    shell: "tar -C /etc --ignore-failed-read -cf /tmp/shorewall_backup.tar {{ 'shorewall' if shorewall4 else '' }} {{ 'shorewall6' if shorewall6 else '' }}"
+    args:
+      warn: no
+    changed_when: False
+  - name: Install and configure shorewall4
+    include_tasks: "shorewall4.yml"
+    when: shorewall4 and not shorewall4_remove
+  - name: Install and configure shorewall6
+    include_tasks: "shorewall6.yml"
+    when: shorewall6 and not shorewall6_remove
+  rescue:
+  - debug: msg="Something went wrong!"
+  always:
+  - name: Remove temporary backup
+    file:
+      dest: "/tmp/shorewall_backup.tar"
+      state: absent
+    changed_when: False
+  when: shorewall4 or shorewall6
+
+# Uninstall
+- name: Uninstall shorewall4 if requested
+  include_tasks: "uninstall4.yml"
+  # shorewall6 depends on shorewall4, so check that too
+  when: shorewall4_remove and not shorewall6_remove
+- name: Uninstall shorewall6 if requested
+  include_tasks: "uninstall6.yml"
+  when: shorewall6_remove

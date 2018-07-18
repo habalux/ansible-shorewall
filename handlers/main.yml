@@ -1,0 +1,10 @@
+---
+- name: Restart shorewall4
+  service:
+    name: shorewall
+    state: restarted
+
+- name: Restart shorewall6
+  service:
+    name: shorewall6
+    state: restarted

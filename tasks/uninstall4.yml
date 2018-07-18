@@ -1,0 +1,6 @@
+
+- name: Uninstall shorewall4
+  package:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ shorewall4_packages }}"

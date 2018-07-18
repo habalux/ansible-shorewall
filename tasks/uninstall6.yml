@@ -1,0 +1,6 @@
+
+- name: Uninstall shorewall6
+  package:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ shorewall6_packages }}"

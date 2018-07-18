@@ -1,0 +1,9 @@
+#
+# {{ ansible_managed }}
+#
+#ZONE   TYPE    OPTIONS                 IN                      OUT
+#                                       OPTIONS                 OPTIONS
+fw      firewall
+{% for zone in shorewall4_zones %}
+{{ zone.zone }}    {{ zone.type|default(shorewall4_zone_default_type) }}    {{ zone.options|default(shorewall4_zone_default_options) }}    {{ zone.in_options|default(shorewall4_zone_default_in_options) }}    {{ zone.out_options|default(shorewall4_zone_default_out_options) }}
+{% endfor %}

@@ -1,0 +1,48 @@
+---
+- name: Install shorewall4
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ shorewall4_packages }}"
+
+- name: Check shorewall version
+  shell: "shorewall version"
+  register: __shorewall4_version
+  check_mode: no
+  changed_when: False
+  failed_when: False
+
+- name: Check shorewall4 version presence
+  fail:
+    msg: "Shorewall4 version could not be detected! (Possible error message: '{{ __shorewall4_version.stderr }}'"
+  when: not __shorewall4_version.stdout_lines
+
+- name: Set shorewall4 version facts
+  set_fact:
+    shorewall4_major_version: "{{ __shorewall4_version.stdout.split('.')[:2]|join('.') }}"
+
+- name: Check shorewall4 version
+  fail:
+    msg: "Shorewall version {{ shorewall4_major_version }} is not supported by this role, sorry! ({{ shorewall4_minimum_version }} or newer required)"
+  when: shorewall4_major_version is version(shorewall4_minimum_version, '<')
+
+- name: Configure shorewall4 main options
+  template:
+    src: "shorewall4/shorewall.conf.{{ shorewall4_major_version }}.j2"
+    dest: "/etc/shorewall/shorewall.conf"
+    owner: "root"
+    group: "root"
+    mode: 0644
+    # backup: yes
+  notify: Restart shorewall4
+
+- name: Configure shorewall4 zones
+  template:
+    src: "shorewall4/zones.{{ shorewall4_major_version }}.j2"
+    dest: "/etc/shorewall/zones"
+    owner: "root"
+    group: "root"
+    mode: 0644
+
+- name: Test shorewall4 configuration
+  command: "shorewall check"

@@ -1,0 +1,4 @@
+shorewall4_packages:
+  - "shorewall"
+shorewall6_packages:
+  - "shorewall6"
