@@ -43,6 +43,35 @@
     owner: "root"
     group: "root"
     mode: 0644
+  notify: Restart shorewall4
+
+- name: Configure shorewall4 interfaces
+  template:
+    src: "shorewall4/interfaces.{{ shorewall4_major_version }}.j2"
+    dest: "/etc/shorewall/interfaces"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall4
+
+- name: Configure shorewall4 policy
+  template:
+    src: "shorewall4/policy.{{ shorewall4_major_version }}.j2"
+    dest: "/etc/shorewall/policy"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall4
+
+- name: Configure shorewall4 rules
+  template:
+    src: "shorewall4/rules.{{ shorewall4_major_version }}.j2"
+    dest: "/etc/shorewall/rules"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall4
 
 - name: Test shorewall4 configuration
   command: "shorewall check"
+  changed_when: False

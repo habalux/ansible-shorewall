@@ -1,0 +1,9 @@
+###############################################################################
+#SOURCE         DEST            POLICY          LOG LEVEL       LIMIT:BURST
+{% for policy in shorewall_policies if policy.ipv4 %}
+{{ policy.source }}    {{ policy.dest }}    {{ policy.policy }}    {{ policy.log_level|default(shorewall4_policy_default_log_level) }}    {{ policy.limit_burst|default(shorewall4_policy_default_limit_burst) }}
+{% endfor %}
+#loc             net             ACCEPT
+#net             all             DROP            info
+# THE FOLLOWING POLICY MUST BE LAST
+all             all             REJECT          info

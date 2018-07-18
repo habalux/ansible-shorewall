@@ -5,6 +5,9 @@ shorewall6_remove: no
 shorewall4_minimum_version: "5.0"
 shorewall6_minimum_version: "5.0"
 
+shorewall_zones: []
+shorewall_interfaces: []
+shorewall_policies: []
 
 shorewall4_config_startup_enabled: "No"
 shorewall4_config_verbosity: 1
@@ -132,12 +135,15 @@ shorewall4_config_provider_offset: ""
 shorewall4_config_mask_bits: ""
 shorewall4_config_zone_bits: 0
 
-shorewall4_zone_default_ipv4: yes
 shorewall4_zone_default_type: "ipv4"
 shorewall4_zone_default_options: "-"
 shorewall4_zone_default_in_options: "-"
 shorewall4_zone_default_out_options: "-"
 
+shorewall4_interfaces_default_options: "-"
+
+shorewall4_policy_default_limit_burst: "-"
+shorewall4_policy_default_log_level: "info"
 
 shorewall6_config_startup_enabled: "No"
 shorewall6_config_verbosity: 1

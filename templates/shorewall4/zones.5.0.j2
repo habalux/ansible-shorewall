@@ -4,6 +4,6 @@
 #ZONE   TYPE    OPTIONS                 IN                      OUT
 #                                       OPTIONS                 OPTIONS
 fw      firewall
-{% for zone in shorewall_zones if zone.ipv4|default(shorewall4_zone_default_ipv4) %}
-{{ zone.zone }}    {{ zone.type|default(shorewall4_zone_default_type) }}    {{ zone.options|default(shorewall4_zone_default_options) }}    {{ zone.in_options|default(shorewall4_zone_default_in_options) }}    {{ zone.out_options|default(shorewall4_zone_default_out_options) }}
+{% for zone in shorewall_zones if zone.ipv4 %}
+{{ zone.zone }}    {{ zone.type_v4|default(shorewall4_zone_default_type) }}    {{ zone.options|default(shorewall4_zone_default_options) }}    {{ zone.in_options|default(shorewall4_zone_default_in_options) }}    {{ zone.out_options|default(shorewall4_zone_default_out_options) }}
 {% endfor %}
