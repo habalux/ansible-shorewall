@@ -28,10 +28,49 @@
 
 - name: Configure shorewall6
   template:
-    src: "shorewall6/shorewall6.conf.{{ shorewall6_major_version }}.j2"
+    src: "shorewall6/{{ shorewall6_major_version }}/shorewall6.conf.j2"
     dest: "/etc/shorewall6/shorewall6.conf"
     owner: "root"
     group: "root"
     mode: 0644
     # backup: yes
   notify: Restart shorewall6
+
+- name: Configure shorewall6 zones
+  template:
+    src: "shorewall6/{{ shorewall6_major_version }}/zones.j2"
+    dest: "/etc/shorewall6/zones"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall6
+
+- name: Configure shorewall6 interfaces
+  template:
+    src: "shorewall6/{{ shorewall6_major_version }}/interfaces.j2"
+    dest: "/etc/shorewall6/interfaces"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall6
+
+- name: Configure shorewall6 policy
+  template:
+    src: "shorewall6/{{ shorewall6_major_version }}/policy.j2"
+    dest: "/etc/shorewall6/policy"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall6
+
+- name: Configure shorewall6 rules
+  template:
+    src: "shorewall6/{{ shorewall6_major_version }}/rules.j2"
+    dest: "/etc/shorewall6/rules"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall6
+
+- name: Test shorewall6 configuration
+  command: "shorewall6 check"

@@ -255,3 +255,13 @@ shorewall6_config_provider_bits: ""
 shorewall6_config_provider_offset: ""
 shorewall6_config_mask_bits: ""
 shorewall6_config_zone_bits: 0
+
+shorewall6_zone_default_type: "ipv6"
+shorewall6_zone_default_options: "-"
+shorewall6_zone_default_in_options: "-"
+shorewall6_zone_default_out_options: "-"
+
+shorewall6_interfaces_default_options: "-"
+
+shorewall6_policy_default_limit_burst: "-"
+shorewall6_policy_default_log_level: "info"

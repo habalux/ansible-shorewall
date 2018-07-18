@@ -1,0 +1,6 @@
+#ZONE   TYPE    OPTIONS                 IN                      OUT
+#                                       OPTIONS                 OPTIONS
+fw      firewall
+{% for zone in shorewall_zones if zone.ipv6 %}
+{{ zone.zone }}  {{ zone.type_v6|default(shorewall6_zone_default_type) }}  {{ zone.options|default(shorewall6_zone_default_options) }}  {{ zone.in_options|default(shorewall6_zone_default_in_options) }}  {{ zone.out_options|default(shorewall6_zone_default_out_options) }}
+{% endfor %}
