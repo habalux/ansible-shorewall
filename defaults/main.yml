@@ -132,6 +132,7 @@ shorewall4_config_provider_offset: ""
 shorewall4_config_mask_bits: ""
 shorewall4_config_zone_bits: 0
 
+shorewall4_zone_default_ipv4: yes
 shorewall4_zone_default_type: "ipv4"
 shorewall4_zone_default_options: "-"
 shorewall4_zone_default_in_options: "-"
