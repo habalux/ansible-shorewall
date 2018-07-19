@@ -83,3 +83,4 @@
 
 - name: Test shorewall6 configuration
   command: "shorewall6 check"
+  changed_when: False
