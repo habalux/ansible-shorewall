@@ -9,6 +9,9 @@ shorewall_zones: []
 shorewall_interfaces: []
 shorewall_policies: []
 
+shorewall_failed_archive_path: "/root/shorewall_backup_failed.tar"
+shorewall_backup_archive_path: "/root/shorewall_backup_previous.tar"
+
 shorewall4_config_startup_enabled: "No"
 shorewall4_config_verbosity: 1
 shorewall4_config_pager: ""

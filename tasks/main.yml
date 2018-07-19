@@ -4,7 +4,7 @@
 
 - block:
   - name: Backup shorewall4/6 configuration in case it needs to be reverted
-    shell: "tar -C /etc --ignore-failed-read -cf /tmp/shorewall_backup.tar {{ 'shorewall' if shorewall4 else '' }} {{ 'shorewall6' if shorewall6 else '' }}"
+    shell: "tar -C /etc --ignore-failed-read -cf /tmp/shorewall_backup.tar shorewall shorewall6"
     args:
       warn: no
     changed_when: False
@@ -15,7 +15,28 @@
     include_tasks: "shorewall6.yml"
     when: shorewall6 and not shorewall6_remove
   rescue:
-  - debug: msg="Something went wrong!"
+  - debug:
+      msg: >
+          Oops! Something went wrong, reverting shorewall4/6 configuration to previous state.
+          Your previous config will be copied to {{ shorewall_backup_archive_path }} and the failed config to {{ shorewall_failed_archive_path }}
+  - name: Make a copy of the failed configuration
+    shell: "tar -C /etc --ignore-failed-read -cf {{ shorewall_failed_archive_path|quote }} shorewall shorewall6"
+    args:
+      warn: no
+  - name: Restore configuration from backup
+    command: "tar -C /etc -xf /tmp/shorewall_backup.tar"
+    args:
+      warn: no
+  - name: Archive backed up configuration
+    copy: src="/tmp/shorewall_backup.tar" dest="{{ shorewall_backup_archive_path }}" remote_src=yes backup=yes
+  - name: Test old shorewall4 configuration
+    shell: "shorewall check"
+    changed_when: False
+    when: shorewall4 and not shorewall4_remove
+  - name: Test shorewall6 configuration
+    shell: "shorewall6 check"
+    changed_when: False
+    when: shorewall6 and not shorewall6_remove
   always:
   - name: Remove temporary backup
     file:
