@@ -36,6 +36,15 @@
     # backup: yes
   notify: Restart shorewall4
 
+- name: Configure shorewall4 params
+  template:
+    src: "shorewall4/{{ shorewall4_major_version }}/params.j2"
+    dest: "/etc/shorewall/params"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall4
+
 - name: Configure shorewall4 zones
   template:
     src: "shorewall4/{{ shorewall4_major_version }}/zones.j2"

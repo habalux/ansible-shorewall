@@ -36,6 +36,15 @@
     # backup: yes
   notify: Restart shorewall6
 
+- name: Configure shorewall6 params
+  template:
+    src: "shorewall6/{{ shorewall6_major_version }}/params.j2"
+    dest: "/etc/shorewall6/params"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall6
+
 - name: Configure shorewall6 zones
   template:
     src: "shorewall6/{{ shorewall6_major_version }}/zones.j2"
