@@ -1,0 +1,9 @@
+#
+# {{ ansible_managed }}
+#
+################################################################################################################
+#INTERFACE:DEST         SOURCE          ADDRESS         PROTO   PORT(S) IPSEC   MARK    USER/   SWITCH  ORIGINAL
+#                                                                                       GROUP           DEST
+{% for __masq in shorewall_masqs if __masq.ipv4 %}
+{{ __masq.interface_dest }}  {{ __masq.source }}  {{ __masq.address|default('-') }}  {{ __masq.proto|default('-') }}  {{ __masq.ports|default('-') }}  {{ __masq.ipsec|default('-') }}  {{ __masq.mark|default('-') }}  {{ __masq.user_group|default('-') }}  {{ __masq.switch|default('-') }}  {{ __masq.original_dest|default('-') }}
+{% endfor %}

@@ -2,7 +2,7 @@
 - name: Install shorewall4
   package:
     name: "{{ item }}"
-    state: present
+    state: "{{ shorewall4_package_state }}"
   loop: "{{ shorewall4_packages }}"
 
 - name: Check shorewall version
@@ -20,6 +20,10 @@
 - name: Set shorewall4 version facts
   set_fact:
     shorewall4_major_version: "{{ __shorewall4_version.stdout.split('.')[:2]|join('.') }}"
+    shorewall4_full_version: "{{ __shorewall4_version.stdout.strip() }}"
+
+- debug:
+    msg: "shorewall4_major_version: {{ shorewall4_major_version }} shorewall4_full_version: {{ shorewall4_full_version }}"
 
 - name: Check shorewall4 version
   fail:
@@ -80,6 +84,26 @@
     group: "root"
     mode: 0644
   notify: Restart shorewall4
+
+- name: Configure shorewall4 masq
+  template:
+    src: "shorewall4/{{ shorewall4_major_version }}/masq.j2"
+    dest: "/etc/shorewall/masq"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall4
+  when: shorewall4_full_version is version('5.2.0', '<')
+
+- name: Configure shorewall4 snat
+  template:
+    src: "shorewall4/{{ shorewall4_major_version }}/snat.j2"
+    dest: "/etc/shorewall/snat"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall4
+  when: shorewall4_full_version is version('5.2.0', '>=')
 
 - name: Test shorewall4 configuration
   command: "shorewall check"

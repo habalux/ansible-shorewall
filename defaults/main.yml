@@ -1,16 +1,23 @@
 shorewall4: yes
 shorewall6: no
-shorewall4_remove: no
-shorewall6_remove: no
-shorewall4_minimum_version: "5.0"
-shorewall6_minimum_version: "5.0"
+shorewall4_package_state: present
+shorewall6_package_state: keep
+shorewall4_minimum_version: "4.5"
+shorewall6_minimum_version: "4.5"
+shorewall4_supported_versions:
+  - "4.5"
+  - "5.0"
 
 shorewall_zones: []
 shorewall_interfaces: []
 shorewall_policies: []
+shorewall_snats: []
+shorewall_masqs: []
 
 shorewall_failed_archive_path: "/root/shorewall_backup_failed.tar"
 shorewall_backup_archive_path: "/root/shorewall_backup_previous.tar"
+
+shorewall4_config_legacy_faststart: "No"
 
 shorewall4_config_startup_enabled: "No"
 shorewall4_config_verbosity: 1
@@ -147,6 +154,10 @@ shorewall4_interfaces_default_options: "-"
 
 shorewall4_policy_default_limit_burst: "-"
 shorewall4_policy_default_log_level: "info"
+
+shorewall6_config_implicit_continue: "No"
+shorewall6_config_ipset_warnings: "Yes"
+shorewall6_config_legacy_faststart: "No"
 
 shorewall6_config_startup_enabled: "No"
 shorewall6_config_verbosity: 1

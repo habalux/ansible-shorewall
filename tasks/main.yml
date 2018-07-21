@@ -10,10 +10,10 @@
     changed_when: False
   - name: Install and configure shorewall4
     include_tasks: "shorewall4.yml"
-    when: shorewall4 and not shorewall4_remove
+    when: shorewall4 and shorewall4_package_state != 'absent'
   - name: Install and configure shorewall6
     include_tasks: "shorewall6.yml"
-    when: shorewall6 and not shorewall6_remove
+    when: shorewall6 and shorewall6_package_state != 'absent'
   rescue:
   - debug:
       msg: >
@@ -32,11 +32,11 @@
   - name: Test old shorewall4 configuration
     shell: "shorewall check"
     changed_when: False
-    when: shorewall4 and not shorewall4_remove
+    when: shorewall4 and shorewall4_package_state != 'absent'
   - name: Test shorewall6 configuration
     shell: "shorewall6 check"
     changed_when: False
-    when: shorewall6 and not shorewall6_remove
+    when: shorewall6 and shorewall6_package_state != 'absent'
   always:
   - name: Remove temporary backup
     file:
@@ -49,7 +49,7 @@
 - name: Uninstall shorewall4 if requested
   include_tasks: "uninstall4.yml"
   # shorewall6 depends on shorewall4, so check that too
-  when: shorewall4_remove and not shorewall6_remove
+  when: shorewall4_package_state == 'absent' and not shorewall6_package_state != 'absent'
 - name: Uninstall shorewall6 if requested
   include_tasks: "uninstall6.yml"
-  when: shorewall6_remove
+  when: shorewall6_package_state == 'absent'

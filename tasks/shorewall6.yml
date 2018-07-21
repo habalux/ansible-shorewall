@@ -2,8 +2,9 @@
 - name: Install shorewall6
   package:
     name: "{{ item }}"
-    state: present
+    state: "{{ shorewall6_package_state }}"
   loop: "{{ shorewall6_packages }}"
+  when: shorewall6_package_state != 'keep'
 
 - name: Check shorewall version
   shell: "shorewall version"

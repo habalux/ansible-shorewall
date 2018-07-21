@@ -1,0 +1,35 @@
+######################################################################################################################################################################################################
+#ACTION         SOURCE          DEST            PROTO   DEST    SOURCE          ORIGINAL        RATE            USER/   MARK    CONNLIMIT       TIME            HEADERS         SWITCH          HELPER
+#                                                       PORT    PORT(S)         DEST            LIMIT           GROUP
+
+SECTION ALL
+{% for __rule in shorewall_rules if __rule.ipv6 and __rule.section|default(None) == 'ALL' %}
+{% include "rule_line.j2" %}
+{% endfor %}
+
+SECTION ESTABLISHED
+{% for __rule in shorewall_rules if __rule.ipv6 and __rule.section|default(None) == 'ESTABLISHED' %}
+{% include "rule_line.j2" %}
+{% endfor %}
+
+SECTION RELATED
+{% for __rule in shorewall_rules if __rule.ipv6 and __rule.section|default(None) == 'RELATED' %}
+{% include "rule_line.j2" %}
+{% endfor %}
+
+SECTION INVALID
+{% for __rule in shorewall_rules if __rule.ipv6 and __rule.section|default(None) == 'INVALID' %}
+{% include "rule_line.j2" %}
+{% endfor %}
+
+SECTION UNTRACKED
+{% for __rule in shorewall_rules if __rule.ipv6 and __rule.section|default(None) == 'UNTRACKED' %}
+{% include "rule_line.j2" %}
+{% endfor %}
+
+SECTION NEW
+{% for __rule in shorewall_rules if __rule.ipv6 and __rule.section|default('NEW') == 'NEW' %}
+{% include "rule_line.j2" %}
+{% endfor %}
+
+#

@@ -1,0 +1,10 @@
+#
+# {{ ansible_managed }}
+#
+###############################################################################
+#SOURCE         DEST            POLICY          LOG LEVEL       LIMIT:BURST
+{% for policy in shorewall_policies if policy.ipv6 %}
+{{ policy.source }}    {{ policy.dest }}    {{ policy.policy }}    {{ policy.log_level|default(shorewall6_policy_default_log_level) }}    {{ policy.limit_burst|default(shorewall6_policy_default_limit_burst) }}
+{% endfor %}
+
+all             all             REJECT          info
