@@ -13,6 +13,10 @@ shorewall_interfaces: []
 shorewall_policies: []
 shorewall_snats: []
 shorewall_masqs: []
+shorewall_blrules: []
+
+shorewall4_default_policy: "DROP"
+shorewall6_default_policy: "DROP"
 
 shorewall_failed_archive_path: "/root/shorewall_backup_failed.tar"
 shorewall_backup_archive_path: "/root/shorewall_backup_previous.tar"
@@ -102,7 +106,7 @@ shorewall4_config_mangle_enabled: "Yes"
 shorewall4_config_mapoldactions: "No"
 shorewall4_config_miniupnpd: "No"
 shorewall4_config_mark_in_forward_chain: "No"
-shorewall4_config_module_suffix: "ko ko.xz"
+# shorewall4_config_module_suffix: "ko ko.xz"
 shorewall4_config_multicast: "No"
 shorewall4_config_mutex_timeout: 60
 shorewall4_config_null_route_rfc1918: "No"
@@ -233,7 +237,7 @@ shorewall6_config_maclist_table: "filter"
 shorewall6_config_maclist_ttl: ""
 shorewall6_config_mangle_enabled: "Yes"
 shorewall6_config_mark_in_forward_chain: "No"
-shorewall6_config_module_suffix: "ko ko.xz"
+# shorewall6_config_module_suffix: "ko ko.xz"
 shorewall6_config_mutex_timeout: 60
 shorewall6_config_optimize: "All"
 shorewall6_config_optimize_accounting: "No"
