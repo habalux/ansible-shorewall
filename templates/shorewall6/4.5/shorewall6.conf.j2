@@ -164,7 +164,7 @@ MANGLE_ENABLED={{ shorewall6_config_mangle_enabled }}
 
 MARK_IN_FORWARD_CHAIN={{ shorewall6_config_mark_in_forward_chain }}
 
-MODULE_SUFFIX="{{ shorewall6_config_module_suffix }}"
+MODULE_SUFFIX="{{ shorewall6_config_module_suffix|default('ko') }}"
 
 MUTEX_TIMEOUT={{ shorewall6_config_mutex_timeout }}
 

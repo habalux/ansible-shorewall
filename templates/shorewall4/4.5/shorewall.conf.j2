@@ -178,7 +178,7 @@ MAPOLDACTIONS={{ shorewall4_config_mapoldactions }}
 
 MARK_IN_FORWARD_CHAIN={{ shorewall4_config_mark_in_forward_chain }}
 
-MODULE_SUFFIX={{ shorewall4_config_module_suffix }}
+MODULE_SUFFIX={{ shorewall4_config_module_suffix|default('ko') }}
 
 MULTICAST={{ shorewall4_config_multicast }}
 
