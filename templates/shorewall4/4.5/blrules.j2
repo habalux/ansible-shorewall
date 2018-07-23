@@ -1,0 +1,11 @@
+#
+# {{ ansible_managed }}
+#
+
+{% for __rule in shorewall_blrules if __rule.ipv4 %}
+{# using the same include as in 'rules' since they are identical #}
+{% include "rule_line.j2" %}
+{% endfor %}
+
+
+#

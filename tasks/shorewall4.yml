@@ -85,6 +85,15 @@
     mode: 0644
   notify: Restart shorewall4
 
+- name: Configure shorewall4 blrules
+  template:
+    src: "shorewall4/{{ shorewall4_major_version }}/blrules.j2"
+    dest: "/etc/shorewall/blrules"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart shorewall4
+
 - name: Configure shorewall4 masq
   template:
     src: "shorewall4/{{ shorewall4_major_version }}/masq.j2"
