@@ -157,7 +157,7 @@ shorewall4_zone_default_out_options: "-"
 shorewall4_interfaces_default_options: "-"
 
 shorewall4_policy_default_limit_burst: "-"
-shorewall4_policy_default_log_level: "info"
+shorewall4_policy_default_log_level: "-"
 
 shorewall6_config_implicit_continue: "No"
 shorewall6_config_ipset_warnings: "Yes"
@@ -282,4 +282,4 @@ shorewall6_zone_default_out_options: "-"
 shorewall6_interfaces_default_options: "-"
 
 shorewall6_policy_default_limit_burst: "-"
-shorewall6_policy_default_log_level: "info"
+shorewall6_policy_default_log_level: "-"
