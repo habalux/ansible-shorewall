@@ -109,8 +109,8 @@ REJECT_DEFAULT="{{ shorewall6_config_reject_default }}"
 #                        R S H / R C P  C O M M A N D S
 ###############################################################################
 
-RCP_COMMAND='{{ shorewall6_config_rcp_command }}' scp ${files} ${root}@${system}:${destination}
-RSH_COMMAND='{{ shorewall6_config_rsh_command }}' ssh ${root}@${system} ${command}
+RCP_COMMAND='{{ shorewall6_config_rcp_command }}'
+RSH_COMMAND='{{ shorewall6_config_rsh_command }}'
 
 ###############################################################################
 #                       F I R E W A L L   O P T I O N S

@@ -6,5 +6,5 @@
 ###############################################################################
 #ZONE   INTERFACE       OPTIONS
 {% for interface in shorewall_interfaces if interface.ipv6 %}
-{{ interface.zone }}    {{ interface.interface }}    {{ interface.options|default(shorewall6_interfaces_default_options) }}
+{{ interface.zone }}    {{ interface.interface }}    {{ interface.options_v6|default(shorewall6_interfaces_default_options) }}
 {% endfor %}
