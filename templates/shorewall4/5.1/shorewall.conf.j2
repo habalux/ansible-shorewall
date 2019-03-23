@@ -1,0 +1,300 @@
+###############################################################################
+#
+#  Shorewall Version 5 -- /etc/shorewall/shorewall.conf
+#
+#  For information about the settings in this file, type "man shorewall.conf"
+#
+#  Manpage also online at http://www.shorewall.net/manpages/shorewall.conf.html
+###############################################################################
+#		       S T A R T U P   E N A B L E D
+###############################################################################
+
+STARTUP_ENABLED={{ shorewall4_config_startup_enabled }}
+
+###############################################################################
+#			     V E R B O S I T Y
+###############################################################################
+
+VERBOSITY={{ shorewall4_config_verbosity }}
+
+###############################################################################
+#			        P A G E R
+###############################################################################
+
+PAGER={{ shorewall4_config_pager }}
+
+###############################################################################
+#			     F I R E W A L L
+###############################################################################
+
+FIREWALL={{ shorewall4_config_firewall }}
+
+###############################################################################
+#			       L O G G I N G
+###############################################################################
+
+LOG_LEVEL="{{ shorewall4_config_log_level }}"
+
+BLACKLIST_LOG_LEVEL={{ shorewall4_config_blacklist_log_level }}
+
+INVALID_LOG_LEVEL={{ shorewall4_config_invalid_log_level }}
+
+LOG_BACKEND={{ shorewall4_config_log_backend }}
+
+LOG_MARTIANS={{ shorewall4_config_log_martians }}
+
+LOG_VERBOSITY={{ shorewall4_config_log_verbosity }}
+
+LOGALLNEW={{ shorewall4_config_logallnew }}
+
+LOGFILE={{ shorewall4_config_logfile }}
+
+LOGFORMAT="{{ shorewall4_config_logformat }}"
+
+LOGTAGONLY={{ shorewall4_config_logtagonly }}
+
+LOGLIMIT="{{ shorewall4_config_loglimit }}"
+
+MACLIST_LOG_LEVEL={{ shorewall4_config_maclist_log_level }}
+
+RELATED_LOG_LEVEL={{ shorewall4_config_related_log_level }}
+
+RPFILTER_LOG_LEVEL="{{ shorewall4_config_rpfilter_log_level }}"
+
+SFILTER_LOG_LEVEL="{{ shorewall4_config_sfilter_log_level }}"
+
+SMURF_LOG_LEVEL="{{ shorewall4_config_smurf_log_level }}"
+
+STARTUP_LOG={{ shorewall4_config_startup_log }}
+
+TCP_FLAGS_LOG_LEVEL="{{ shorewall4_config_tcp_flags_log_level }}"
+
+UNTRACKED_LOG_LEVEL={{ shorewall4_config_untracked_log_level }}
+
+###############################################################################
+#	L O C A T I O N	  O F	F I L E S   A N D   D I R E C T O R I E S
+###############################################################################
+
+ARPTABLES={{ shorewall4_config_arptables }}
+
+CONFIG_PATH="{{ shorewall4_config_config_path }}"
+
+GEOIPDIR={{ shorewall4_config_geoipdir }}
+
+IPTABLES={{ shorewall4_config_iptables }}
+
+IP={{ shorewall4_config_ip }}
+
+IPSET={{ shorewall4_config_ipset }}
+
+LOCKFILE={{ shorewall4_config_lockfile }}
+
+MODULESDIR={{ shorewall4_config_modulesdir }}
+
+NFACCT={{ shorewall4_config_nfacct }}
+
+PATH="{{ shorewall4_config_path }}"
+
+PERL={{ shorewall4_config_perl }}
+
+RESTOREFILE={{ shorewall4_config_restorefile }}
+
+SHOREWALL_SHELL={{ shorewall4_config_shorewall_shell }}
+
+SUBSYSLOCK="{{ shorewall4_config_subsyslock }}"
+
+TC={{ shorewall4_config_tc }}
+
+###############################################################################
+#		D E F A U L T   A C T I O N S / M A C R O S
+###############################################################################
+
+ACCEPT_DEFAULT="{{ shorewall4_config_accept_default }}"
+BLACKLIST_DEFAULT="{{ shorewall4_config_blacklist_default }}"
+DROP_DEFAULT="{{ shorewall4_config_drop_default }}"
+NFQUEUE_DEFAULT="{{ shorewall4_config_nfqueue_default }}"
+QUEUE_DEFAULT="{{ shorewall4_config_queue_default }}"
+REJECT_DEFAULT="{{ shorewall4_config_reject_default }}"
+
+###############################################################################
+#			 R S H / R C P	C O M M A N D S
+###############################################################################
+
+RCP_COMMAND='{{ shorewall4_config_rcp_command }}'
+RSH_COMMAND='{{ shorewall4_config_rsh_command }}'
+
+###############################################################################
+#			F I R E W A L L	  O P T I O N S
+###############################################################################
+
+ACCOUNTING={{ shorewall4_config_accounting }}
+
+ACCOUNTING_TABLE={{ shorewall4_config_accounting_table }}
+
+ADD_IP_ALIASES={{ shorewall4_config_add_ip_aliases }}
+
+ADD_SNAT_ALIASES={{ shorewall4_config_add_snat_aliases }}
+
+ADMINISABSENTMINDED={{ shorewall4_config_adminisabsentminded }}
+
+AUTOCOMMENT={{ shorewall4_config_autocomment }}
+
+AUTOHELPERS={{ shorewall4_config_autohelpers }}
+
+AUTOMAKE={{ shorewall4_config_automake }}
+
+BALANCE_PROVIDERS={{ shorewall4_config_balance_providers }}
+
+BASIC_FILTERS={{ shorewall4_config_basic_filters }}
+
+BLACKLIST="{{ shorewall4_config_blacklist }}"
+
+CLAMPMSS={{ shorewall4_config_clampmss }}
+
+CLEAR_TC={{ shorewall4_config_clear_tc }}
+
+COMPLETE={{ shorewall4_config_complete }}
+
+DEFER_DNS_RESOLUTION={{ shorewall4_config_defer_dns_resolution }}
+
+DELETE_THEN_ADD={{ shorewall4_config_delete_then_add }}
+
+DETECT_DNAT_IPADDRS={{ shorewall4_config_detect_dnat_ipaddrs }}
+
+DISABLE_IPV6={{ shorewall4_config_disable_ipv6 }}
+
+DOCKER={{ shorewall4_config_docker }}
+
+DONT_LOAD={{ shorewall4_config_dont_load }}
+
+DYNAMIC_BLACKLIST={{ shorewall4_config_dynamic_blacklist }}
+
+EXPAND_POLICIES={{ shorewall4_config_expand_policies }}
+
+EXPORTMODULES={{ shorewall4_config_exportmodules }}
+
+FASTACCEPT={{ shorewall4_config_fastaccept }}
+
+FORWARD_CLEAR_MARK={{ shorewall4_config_forward_clear_mark }}
+
+HELPERS={{ shorewall4_config_helpers }}
+
+IGNOREUNKNOWNVARIABLES={{ shorewall4_config_ignoreunknownvariables }}
+
+IMPLICIT_CONTINUE={{ shorewall4_config_implicit_continue }}
+
+INLINE_MATCHES={{ shorewall4_config_inline_matches }}
+
+IPSET_WARNINGS={{ shorewall4_config_ipset_warnings }}
+
+IP_FORWARDING={{ shorewall4_config_ip_forwarding }}
+
+KEEP_RT_TABLES={{ shorewall4_config_keep_rt_tables }}
+
+LOAD_HELPERS_ONLY={{ shorewall4_config_load_helpers_only }}
+
+MACLIST_TABLE={{ shorewall4_config_maclist_table }}
+
+MACLIST_TTL={{ shorewall4_config_maclist_ttl }}
+
+MANGLE_ENABLED={{ shorewall4_config_mangle_enabled }}
+
+MAPOLDACTIONS={{ shorewall4_config_mapoldactions }}
+
+MARK_IN_FORWARD_CHAIN={{ shorewall4_config_mark_in_forward_chain }}
+
+MINIUPNPD={{ shorewall4_config_miniupnpd }}
+
+MULTICAST={{ shorewall4_config_multicast }}
+
+MUTEX_TIMEOUT={{ shorewall4_config_mutex_timeout }}
+
+NULL_ROUTE_RFC1918={{ shorewall4_config_null_route_rfc1918 }}
+
+OPTIMIZE={{ shorewall4_config_optimize }}
+
+OPTIMIZE_ACCOUNTING={{ shorewall4_config_optimize_accounting }}
+
+PERL_HASH_SEED={{ shorewall4_config_perl_hash_seed }}
+
+REJECT_ACTION={{ shorewall4_config_reject_action }}
+
+REQUIRE_INTERFACE={{ shorewall4_config_require_interface }}
+
+RESTART={{ shorewall4_config_restart }}
+
+RESTORE_DEFAULT_ROUTE={{ shorewall4_config_restore_default_route }}
+
+RESTORE_ROUTEMARKS={{ shorewall4_config_restore_routemarks }}
+
+RETAIN_ALIASES={{ shorewall4_config_retain_aliases }}
+
+ROUTE_FILTER={{ shorewall4_config_route_filter }}
+
+SAVE_ARPTABLES={{ shorewall4_config_save_arptables }}
+
+SAVE_IPSETS={{ shorewall4_config_save_ipsets }}
+
+TC_ENABLED={{ shorewall4_config_tc_enabled }}
+
+TC_EXPERT={{ shorewall4_config_tc_expert }}
+
+TC_PRIOMAP="{{ shorewall4_config_tc_priomap }}"
+
+TRACK_PROVIDERS={{ shorewall4_config_track_providers }}
+
+TRACK_RULES={{ shorewall4_config_track_rules }}
+
+USE_DEFAULT_RT={{ shorewall4_config_use_default_rt }}
+
+USE_NFLOG_SIZE={{ shorewall4_config_use_nflog_size }}
+
+USE_PHYSICAL_NAMES={{ shorewall4_config_use_physical_names }}
+
+USE_RT_NAMES={{ shorewall4_config_use_rt_names }}
+
+VERBOSE_MESSAGES={{ shorewall4_config_verbose_messages }}
+
+WARNOLDCAPVERSION={{ shorewall4_config_warnoldcapversion }}
+
+WORKAROUNDS={{ shorewall4_config_workarounds }}
+
+ZERO_MARKS={{ shorewall4_config_zero_marks }}
+
+ZONE2ZONE={{ shorewall4_config_zone2zone }}
+
+###############################################################################
+#			P A C K E T   D I S P O S I T I O N
+###############################################################################
+
+BLACKLIST_DISPOSITION={{ shorewall4_config_blacklist_disposition }}
+
+INVALID_DISPOSITION={{ shorewall4_config_invalid_disposition }}
+
+MACLIST_DISPOSITION={{ shorewall4_config_maclist_disposition }}
+
+RELATED_DISPOSITION={{ shorewall4_config_related_disposition }}
+
+RPFILTER_DISPOSITION={{ shorewall4_config_rpfilter_disposition }}
+
+SMURF_DISPOSITION={{ shorewall4_config_smurf_disposition }}
+
+SFILTER_DISPOSITION={{ shorewall4_config_sfilter_disposition }}
+
+TCP_FLAGS_DISPOSITION={{ shorewall4_config_tcp_flags_disposition }}
+
+UNTRACKED_DISPOSITION={{ shorewall4_config_untracked_disposition }}
+
+################################################################################
+#			P A C K E T  M A R K  L A Y O U T
+################################################################################
+
+TC_BITS={{ shorewall4_config_tc_bits }}
+
+PROVIDER_BITS={{ shorewall4_config_provider_bits }}
+
+PROVIDER_OFFSET={{ shorewall4_config_provider_offset }}
+
+MASK_BITS={{ shorewall4_config_mask_bits }}
+
+ZONE_BITS={{ shorewall4_config_zone_bits }}

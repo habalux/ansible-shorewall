@@ -1,0 +1,7 @@
+#
+# {{ ansible_managed }}
+#
+
+{% for __param in shorewall_params if __param.value6|default(None) %}
+{{ __param.name }}={{ __param.value6 }}
+{% endfor %}

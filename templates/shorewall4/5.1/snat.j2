@@ -1,0 +1,9 @@
+#
+# {{ ansible_managed }}
+#
+###########################################################################################################################################
+#ACTION                 SOURCE                  DEST            PROTO   PORT    IPSEC   MARK    USER    SWITCH  ORIGDEST        PROBABILITY
+#
+{% for __snat in shorewall_snats if __snat.ipv4 %}
+{{ __snat.action }}  {{ __snat.source|default('-') }}  {{ __snat.dest|default('-') }}  {{ __snat.proto|default('-') }} {{ __snat.port|default('-') }} {{ __snat.ipsec|default('-') }}  {{ __snat.mark|default('-') }}  {{ __snat.user|default('-') }}  {{ __snat.switch|default('-') }}  {{ __snat.origdest|default('-') }} {{ __snat.probability|default('-') }}
+{% endfor %}

@@ -1,0 +1,277 @@
+###############################################################################
+#
+#  Shorewall Version 5 -- /etc/shorewall6/shorewall6.conf
+#
+#  For information about the settings in this file, type "man shorewall6.conf"
+#
+#  Manpage also online at
+#  http://www.shorewall.net/manpages6/shorewall6.conf.html
+###############################################################################
+#		       S T A R T U P   E N A B L E D
+###############################################################################
+
+STARTUP_ENABLED={{ shorewall6_config_startup_enabled }}
+
+###############################################################################
+#			     V E R B O S I T Y
+###############################################################################
+
+VERBOSITY={{ shorewall6_config_verbosity }}
+
+###############################################################################
+#			        P A G E R
+###############################################################################
+
+PAGER={{ shorewall6_config_pager }}
+
+###############################################################################
+#			     F I R E W A L L
+###############################################################################
+
+FIREWALL={{ shorewall6_config_firewall }}
+
+###############################################################################
+#			       L O G G I N G
+###############################################################################
+
+LOG_LEVEL="{{ shorewall6_config_log_level }}"
+
+BLACKLIST_LOG_LEVEL={{ shorewall6_config_blacklist_log_level }}
+
+INVALID_LOG_LEVEL={{ shorewall6_config_invalid_log_level }}
+
+LOG_BACKEND={{ shorewall6_config_log_backend }}
+
+LOG_VERBOSITY={{ shorewall6_config_log_verbosity }}
+
+LOGALLNEW={{ shorewall6_config_logallnew }}
+
+LOGFILE={{ shorewall6_config_logfile }}
+
+LOGFORMAT="{{ shorewall6_config_logformat }}"
+
+LOGLIMIT="{{ shorewall6_config_loglimit }}"
+
+LOGTAGONLY={{ shorewall6_config_logtagonly }}
+
+MACLIST_LOG_LEVEL="{{ shorewall6_config_maclist_log_level }}"
+
+RELATED_LOG_LEVEL={{ shorewall6_config_related_log_level }}
+
+RPFILTER_LOG_LEVEL="{{ shorewall6_config_rpfilter_log_level }}"
+
+SFILTER_LOG_LEVEL="{{ shorewall6_config_sfilter_log_level }}"
+
+SMURF_LOG_LEVEL="{{ shorewall6_config_smurf_log_level }}"
+
+STARTUP_LOG={{ shorewall6_config_startup_log }}
+
+TCP_FLAGS_LOG_LEVEL="{{ shorewall6_config_tcp_flags_log_level }}"
+
+UNTRACKED_LOG_LEVEL={{ shorewall6_config_untracked_log_level }}
+
+###############################################################################
+#	L O C A T I O N	  O F	F I L E S   A N D   D I R E C T O R I E S
+###############################################################################
+
+CONFIG_PATH="{{ shorewall6_config_config_path }}"
+
+GEOIPDIR={{ shorewall6_config_geoipdir }}
+
+IP6TABLES={{ shorewall6_config_ip6tables }}
+
+IP={{ shorewall6_config_ip }}
+
+IPSET={{ shorewall6_config_ipset }}
+
+LOCKFILE={{ shorewall6_config_lockfile }}
+
+MODULESDIR={{ shorewall6_config_modulesdir }}
+
+NFACCT={{ shorewall6_config_nfacct }}
+
+PERL={{ shorewall6_config_perl }}
+
+PATH="{{ shorewall6_config_path }}"
+
+RESTOREFILE={{ shorewall6_config_restore }}
+
+SHOREWALL_SHELL={{ shorewall6_config_shorewall_shell }}
+
+SUBSYSLOCK="{{ shorewall6_config_subsyslock }}"
+
+TC={{ shorewall6_config_tc }}
+
+###############################################################################
+#		D E F A U L T   A C T I O N S / M A C R O S
+###############################################################################
+
+ACCEPT_DEFAULT="{{ shorewall6_config_accept_default }}"
+BLACKLIST_DEFAULT={{ shorewall6_config_blacklist_default }}
+DROP_DEFAULT="{{ shorewall6_config_drop_default }}"
+NFQUEUE_DEFAULT="nfqueue_default" "none"
+QUEUE_DEFAULT="{{ shorewall6_config_queue_default }}"
+REJECT_DEFAULT="{{ shorewall6_config_reject_default }}"
+
+###############################################################################
+#			 R S H / R C P	C O M M A N D S
+###############################################################################
+
+RCP_COMMAND='{{ shorewall6_config_rcp_command }}' 'scp ${files} ${root}@${system}:${destination}'
+RSH_COMMAND='{{ shorewall6_config_rsh_command }}' 'ssh ${root}@${system} ${command}'
+
+###############################################################################
+#			F I R E W A L L	  O P T I O N S
+###############################################################################
+
+ACCOUNTING={{ shorewall6_config_accounting }}
+
+ACCOUNTING_TABLE={{ shorewall6_config_accounting_table }}
+
+ADMINISABSENTMINDED={{ shorewall6_config_adminisabsentminded }}
+
+AUTOCOMMENT={{ shorewall6_config_autocomment }}
+
+AUTOHELPERS={{ shorewall6_config_autohelpers }}
+
+AUTOMAKE={{ shorewall6_config_automake }}
+
+BALANCE_PROVIDERS={{ shorewall6_config_balance_providers }}
+
+BASIC_FILTERS={{ shorewall6_config_basic_filters }}
+
+BLACKLIST="{{ shorewall6_config_blacklist }}"
+
+CLAMPMSS={{ shorewall6_config_clampmss }}
+
+CLEAR_TC={{ shorewall6_config_clear_tc }}
+
+COMPLETE={{ shorewall6_config_complete }}
+
+DEFER_DNS_RESOLUTION={{ shorewall6_config_defer_dns_resolution }}
+
+DELETE_THEN_ADD={{ shorewall6_config_delete_then_add }}
+
+DONT_LOAD={{ shorewall6_config_dont_load }}
+
+DYNAMIC_BLACKLIST={{ shorewall6_config_dynamic_blacklist }}
+
+EXPAND_POLICIES={{ shorewall6_config_expand_policies }}
+
+EXPORTMODULES={{ shorewall6_config_exportmodules }}
+
+FASTACCEPT={{ shorewall6_config_fastaccept }}
+
+FORWARD_CLEAR_MARK={{ shorewall6_config_forward_clear_mark }}
+
+HELPERS={{ shorewall6_config_helpers }}
+
+IGNOREUNKNOWNVARIABLES={{ shorewall6_config_ignoreunknownvariables }}
+
+IMPLICIT_CONTINUE={{ shorewall6_config_implicit_continue }}
+
+INLINE_MATCHES={{ shorewall6_config_inline_matches }}
+
+IPSET_WARNINGS={{ shorewall6_config_ipset_warnings }}
+
+IP_FORWARDING={{ shorewall6_config_ip_forwarding }}
+
+KEEP_RT_TABLES={{ shorewall6_config_keep_rt_tables }}
+
+LOAD_HELPERS_ONLY={{ shorewall6_config_load_helpers_only }}
+
+MACLIST_TABLE={{ shorewall6_config_maclist_table }}
+
+MACLIST_TTL={{ shorewall6_config_maclist_ttl }}
+
+MANGLE_ENABLED={{ shorewall6_config_mangle_enabled }}
+
+MARK_IN_FORWARD_CHAIN={{ shorewall6_config_mark_in_forward_chain }}
+
+MINIUPNPD={{ shorewall6_config_miniupnpd }}
+
+MUTEX_TIMEOUT={{ shorewall6_config_mutex_timeout }}
+
+OPTIMIZE={{ shorewall6_config_optimize }}
+
+OPTIMIZE_ACCOUNTING={{ shorewall6_config_optimize_accounting }}
+
+PERL_HASH_SEED={{ shorewall6_config_perl_hash_seed }}
+
+REJECT_ACTION={{ shorewall6_config_reject_action }}
+
+REQUIRE_INTERFACE={{ shorewall6_config_require_interface }}
+
+RESTART={{ shorewall6_config_restart }}
+
+RESTORE_DEFAULT_ROUTE={{ shorewall6_config_restore_default_route }}
+
+RESTORE_ROUTEMARKS={{ shorewall6_config_restore_routemarks }}
+
+SAVE_IPSETS={{ shorewall6_config_save_ipsets }}
+
+TC_ENABLED={{ shorewall6_config_tc_enabled }}
+
+TC_EXPERT={{ shorewall6_config_tc_expert }}
+
+TC_PRIOMAP="{{ shorewall6_config_tc_priomap }}"
+
+TRACK_PROVIDERS={{ shorewall6_config_track_providers }}
+
+TRACK_RULES={{ shorewall6_config_track_rules }}
+
+USE_DEFAULT_RT={{ shorewall6_config_use_default_rt }}
+
+USE_NFLOG_SIZE={{ shorewall6_config_use_nflog_size }}
+
+USE_PHYSICAL_NAMES={{ shorewall6_config_use_physical_names }}
+
+USE_RT_NAMES={{ shorewall6_config_use_rt_names }}
+
+VERBOSE_MESSAGES={{ shorewall6_config_verbose_messages }}
+
+WARNOLDCAPVERSION={{ shorewall6_config_warnoldcapversion }}
+
+WORKAROUNDS={{ shorewall6_config_workarounds }}
+
+ZERO_MARKS={{ shorewall6_config_zero_marks }}
+
+ZONE2ZONE={{ shorewall6_config_zone2zone }}
+
+###############################################################################
+#			P A C K E T   D I S P O S I T I O N
+###############################################################################
+
+BLACKLIST_DISPOSITION={{ shorewall6_config_blacklist_disposition }}
+
+INVALID_DISPOSITION={{ shorewall6_config_invalid_disposition }}
+
+MACLIST_DISPOSITION={{ shorewall6_config_maclist_disposition }}
+
+RELATED_DISPOSITION={{ shorewall6_config_related_disposition }}
+
+SFILTER_DISPOSITION={{ shorewall6_config_sfilter_disposition }}
+
+RPFILTER_DISPOSITION={{ shorewall6_config_rpfilter_disposition }}
+
+SMURF_DISPOSITION={{ shorewall6_config_smurf_disposition }}
+
+TCP_FLAGS_DISPOSITION={{ shorewall6_config_tcp_flags_disposition }}
+
+UNTRACKED_DISPOSITION={{ shorewall6_config_untracked_disposition }}
+
+################################################################################
+#			P A C K E T  M A R K  L A Y O U T
+################################################################################
+
+TC_BITS={{ shorewall6_config_tc_bits }}
+
+PROVIDER_BITS={{ shorewall6_config_provider_bits }}
+
+PROVIDER_OFFSET={{ shorewall6_config_provider_offset }}
+
+MASK_BITS={{ shorewall6_config_mask_bits }}
+
+ZONE_BITS={{ shorewall6_config_zone_bits }}
+
+#LAST LINE -- DO NOT REMOVE
